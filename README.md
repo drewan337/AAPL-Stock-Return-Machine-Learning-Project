@@ -58,3 +58,22 @@ The data directory will contain one file per ticker, with a history going back m
 - you can choose to define return based on the **Adj Close** feature
     - but you should explain your choice
     - in the rest of the instructions: the word "Close" will refer to whichever choice you made
+**Note**
+
+We are *not* providing you with a training/validation/test dataset containing examples as in past assignments.
+
+Instead: 
+- we are providing a directory of data files
+- it is your responsibility to create examples from this data
+    - you will create examples for training/validation/test/holdout datasets
+- the examples you create will reflect your judgment as to what raw/synthetic features have predictive value
+
+# Warning: Avoid looking into the future !
+
+Obviously, you should not use knowledge of the future to predict future prices.
+
+But it is surprisingly easy to inadvertantly do so !  For example:
+- when standardizing a data set: you might compute averages and standard deviations over the full range of dates
+    - this means that the earliest dates have implicit knowledge of later dates
+        - for example, suppose the mean increases after 10 days
+        - the observations of the first 9 days *should not know* that the mean of the entire data range is different than what is available from earlier observations
